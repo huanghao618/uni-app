@@ -46,7 +46,9 @@
                     "style" :                                                                                    
                 {
                     "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
+                    "enablePullDownRefresh": true,
+                    "enablePullDownRefresh": false,
+                    "onReachBottomDistance": 150
                 }
                 
                 }
