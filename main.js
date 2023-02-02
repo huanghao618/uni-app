@@ -3,7 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import { $http } from '@escook/request-miniprogram'
-
+// 1. 导入 store 的实例对象
+import store from './store/store.js'
 uni.$http = $http
 // 配置请求根路径
 $http.baseUrl = 'https://www.uinav.com'
@@ -31,7 +32,8 @@ Vue.config.productionTip = false
 
 App.mpType = 'app'
 const app = new Vue({
-    ...App
+    ...App,
+    store,
 })
 app.$mount()
 // #endif

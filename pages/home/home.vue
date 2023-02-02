@@ -2,17 +2,17 @@
     <view>
         <!-- 使用自定义的搜索组件 -->
         <view class="search-box">
-          <my-search @click="gotoSearch"></my-search>
+            <my-search @click="gotoSearch"></my-search>
         </view>
         <!-- 轮播图区域 -->
         <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
             <!-- 循环渲染轮播图的 item 项 -->
-           <swiper-item v-for="(item, i) in swiperList" :key="i">
-               <navigator class="swiper-item" :url="'/subpkg/goods_detail/goods_detail?goods_id=' + item.goods_id">
-                 <!-- 动态绑定图片的 src 属性 -->
-                 <image :src="item.image_src"></image>
-               </navigator>
-           </swiper-item>
+            <swiper-item v-for="(item, i) in swiperList" :key="i">
+                <navigator class="swiper-item" :url="'/subpkg/goods_detail/goods_detail?goods_id=' + item.goods_id">
+                    <!-- 动态绑定图片的 src 属性 -->
+                    <image :src="item.image_src"></image>
+                </navigator>
+            </swiper-item>
         </swiper>
         <!-- 分类导航区域 -->
         <view class="nav-list">
@@ -49,7 +49,12 @@
 </template>
 
 <script>
+    // 导入自己封装的 mixin 模块
+    import badgeMix from '@/mixins/tabbar-badge.js'
+
     export default {
+        // 将 badgeMix 混入到当前的页面中进行使用
+        mixins: [badgeMix],
         data() {
             return {
                 swiperList: [],
@@ -102,9 +107,9 @@
                 }
             },
             gotoSearch() {
-              uni.navigateTo({
-                url: '/subpkg/search/search'
-              })
+                uni.navigateTo({
+                    url: '/subpkg/search/search'
+                })
             }
         }
     }
@@ -148,12 +153,13 @@
         display: flex;
         padding-left: 10rpx;
     }
+
     .search-box {
-      // 设置定位效果为“吸顶”
-      position: sticky;
-      // 吸顶的“位置”
-      top: 0;
-      // 提高层级，防止被轮播图覆盖
-      z-index: 999;
+        // 设置定位效果为“吸顶”
+        position: sticky;
+        // 吸顶的“位置”
+        top: 0;
+        // 提高层级，防止被轮播图覆盖
+        z-index: 999;
     }
 </style>

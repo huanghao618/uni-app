@@ -1,20 +1,25 @@
 <template>
-  <view>
-    购物车
-  </view>
+    <view>
+        购物车
+    </view>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        
-      }
-    },
-    methods: {
-      
+    // 导入自己封装的 mixin 模块
+    import badgeMix from '@/mixins/tabbar-badge.js'
+
+    export default {
+        // 将 badgeMix 混入到当前的页面中进行使用
+        mixins: [badgeMix],
+        data() {
+            return {
+
+            }
+        },
+        methods: {
+
+        }
     }
-  }
 </script>
 
 <style>
